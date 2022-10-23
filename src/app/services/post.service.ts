@@ -43,20 +43,28 @@ export class PostService {
   }
 
   filterBySector(sector?: string) {
-    const currentPosts = this.posts.getValue();
     if (sector === '') {
-      this.posts.next(currentPosts)
+      this.posts.next(Posts)
       return
     }
+    const currentPosts = this.posts.getValue();
     const searchResult = currentPosts.filter(post => post.sector?.toLowerCase().trim() === sector?.toLocaleLowerCase().trim());
     this.posts.next(searchResult);
   }
   filterByCountry(country?: string) {
+    if (country === '') {
+      this.posts.next(Posts)
+      return
+    }
     const currentPosts = this.posts.getValue();
     const searchResult = currentPosts.filter(post => post.country?.toLowerCase().trim() === country?.toLocaleLowerCase().trim());
     this.posts.next(searchResult);
   }
   filterByCity(city?: string) {
+    if (city === '') {
+      this.posts.next(Posts)
+      return
+    }
     const currentPosts = this.posts.getValue();
     const searchResult = currentPosts.filter(post => post.city?.toLowerCase().trim() === city?.toLocaleLowerCase().trim());
     this.posts.next(searchResult);

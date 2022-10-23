@@ -46,7 +46,12 @@ export class FilterSectionComponent implements OnInit {
   }
   getSelectedCity($event: Event) {
     const selectedCity = ($event.target as HTMLInputElement).value;
-    this.filterByCity(selectedCity);
+    if (($event.target as HTMLInputElement).checked) {
+      this.filterByCity(selectedCity);
+    } else {
+      this.postService.filterByCity('')
+    }
+
   }
   getSelectedSector($event: Event) {
     this.selectedSector = ($event.target as HTMLInputElement).value;
