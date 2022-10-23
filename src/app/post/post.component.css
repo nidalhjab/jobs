@@ -1,0 +1,36 @@
+.posts {
+  border: 1px solid rgb(153, 153, 243);
+  margin-top: 15px;
+}
+.post-content {
+  display: flex;
+  padding: 15px;
+}
+p {
+  color: #292929;
+}
+.details {
+  width: 60%;
+}
+.details #description {
+  color: #a2a2a2;
+  max-width: 80%;
+}
+img {
+  width: 80%;
+}
+.img {
+  width: 15%;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+svg:hover {
+  cursor: pointer;
+}
+.action {
+  display: flex;
+  justify-content: space-around;
+}

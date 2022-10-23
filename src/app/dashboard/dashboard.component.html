@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="left-side">
+    <div class="filters">
+      <app-filter-section></app-filter-section>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="content">
+      <div class="search">
+        <div class="search-bar">
+          <form [formGroup]="filterForm">
+            <input
+              formControlName="searchTitle"
+              class="form-control"
+              id="searchQuery"
+              [(ngModel)]="searchText"
+              type="text"
+              placeholder="Search By Job Title"
+            />
+          </form>
+        </div>
+        <div class="add-action">
+          <button (click)="openAddModal()">Add New Job</button>
+        </div>
+      </div>
+      <div class="posts">
+        <app-post [searchText]="debouncedControl$ | async"></app-post>
+      </div>
+      <div *ngIf="addPostModal" class="modal">
+        <app-add-post></app-add-post>
+      </div>
+      <div *ngIf="viewDetailsModal">
+        <app-post-details></app-post-details>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</div>

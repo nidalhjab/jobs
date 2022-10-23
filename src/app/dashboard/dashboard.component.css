@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  height: fit-content;
+}
+.left-side {
+  width: 25%;
+  border: 1px solid rgb(153, 153, 243);
+  height: 100vh;
+}
+.right-side {
+  background-color: #f2f2f2;
+  width: 72%;
+  border: 1px solid rgb(153, 153, 243);
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+.search-bar {
+  background-color: #f2f2f2;
+  width: 85%;
+}
+input {
+  width: 100%;
+}
+button {
+  color: white;
+  background-color: #2196f3;
+  border: 1px solid #2196f3;
+  border-radius: 5px;
+}
+.content {
+  margin: 20px;
+}

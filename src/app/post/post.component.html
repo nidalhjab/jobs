@@ -1,0 +1,46 @@
+<div class="container">
+  <div
+    *ngFor="
+      let post of posts
+        | filter: searchText
+        | paginate
+          : {
+              itemsPerPage: totalPages,
+              currentPage: startPage
+            }
+    "
+    class="posts"
+  >
+    <div class="post-content">
+      <div class="img">
+        <img src="../../assets/images/img.png" alt="job img" />
+      </div>
+      <div class="details">
+        <p>{{ post.jobTitle }}</p>
+        <p>{{ post.city }}, {{ post.country }}</p>
+        <p>{{ post.sector }}</p>
+        <p id="description">{{ post.description }}</p>
+      </div>
+      <div class="action">
+        <svg-icon
+          (click)="openDetailsModal(post?.id)"
+          [viewBox]="'0 0 1200 1200'"
+          src="../../assets/icons/eye.svg"
+          [svgStyle]="{ 'width.px': 70, fill: '#2196f3' }"
+        ></svg-icon>
+        <svg-icon
+          (click)="deletePost(post?.id)"
+          [viewBox]="'0 0 1200 1200'"
+          src="../../assets/icons/delete.svg"
+          [svgStyle]="{ 'width.px': 70, fill: 'tomato' }"
+        >
+        </svg-icon>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <pagination-controls
+      (pageChange)="startPage = $event"
+    ></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="secotr">
+    <h3>Sector</h3>
+    <label *ngFor="let sector of sectors" for="{{ sector }}" class="checkbox">
+      <input
+        (change)="getSelectedSector($event)"
+        type="checkbox"
+        name="{{ sector }}"
+        value=" {{ sector }} "
+      />
+      <span>{{ sector }}</span>
+    </label>
+  </div>
+  <div class="country">
+    <h3>Country</h3>
+    <label
+      *ngFor="let country of countries"
+      for=" {{ country.name }} "
+      class="checkbox"
+    >
+      <input
+        (change)="getSelectedCountry($event)"
+        type="checkbox"
+        name="{{ country.name }}"
+        value=" {{ country.name }} "
+      />
+      <span>{{ country.name }}</span>
+    </label>
+  </div>
+  <div *ngIf="cities" class="city">
+    <h3>City</h3>
+    <label *ngFor="let city of cities" class="checkbox">
+      <input
+        (change)="getSelectedCity($event)"
+        type="checkbox"
+        name="{{ city }}"
+        value=" {{ city }} "
+      />
+      <span>{{ city }}</span>
+    </label>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="modal-content">
+    <h3>Job Details</h3>
+    <div class="img">
+      <img src="../../assets/images/img.png" alt="job photo" />
+    </div>
+    <div class="details">
+      <p><strong>Job Title:</strong> {{ post.jobTitle }}</p>
+      <p><strong>Location:</strong> {{ post.country }}, {{ post.city }}</p>
+      <p><strong>Description:</strong> {{ post.description }}</p>
+    </div>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>

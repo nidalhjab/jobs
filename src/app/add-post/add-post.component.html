@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="modal-content">
+    <h3>Add new Job Post</h3>
+    <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+      <div class="part-one">
+        <input
+          id="jobTitle"
+          placeholder="Job Title"
+          type="text"
+          formControlName="jobTitle"
+        />
+        <select formControlName="sector" name="sectors" id="sectors">
+          <option value="" disabled hidden selected>Sectors</option>
+          <option *ngFor="let sector of sectors" value="{{ sector }}">
+            {{ sector }}
+          </option>
+        </select>
+      </div>
+      <div class="part-two">
+        <select
+          formControlName="country"
+          name="country"
+          id="country"
+          (change)="getSelectedCountry($event)"
+        >
+          <option value="" disabled hidden selected>Country</option>
+          <option *ngFor="let country of countries" value="{{ country.name }}">
+            {{ country.name }}
+          </option>
+        </select>
+        <select formControlName="city" name="cities" id="cities">
+          <option value="" disabled hidden selected>City</option>
+          <option *ngFor="let city of cities" value="{{ city }}">
+            {{ city }}
+          </option>
+        </select>
+      </div>
+      <div class="textArea">
+        <textarea
+          formControlName="description"
+          placeholder="Description"
+          id="w3review"
+          name="w3review"
+          rows="4"
+          cols="50"
+        ></textarea>
+      </div>
+      <div class="actions">
+        <button type="button" (click)="closeModal()">Cancel</button>
+        <button type="submit" [disabled]="!newPostForm.valid">
+          Add New Job
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
